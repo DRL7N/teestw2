@@ -7,7 +7,6 @@ const { BOTID , INVITE ,GUILD , ONLYADVERT, sinceLastLJ, cachedDMS,  USERID, CHA
 
 client.on('ready', () => {
    console.log(`Online: ${client.user.tag}\nGuilds: ${client.guilds.size}`);
-   client.user.setGame(`3rb Network`);
 }).on("error", function(error) {
   return console.log(error);
 }).on("message", message => {
@@ -41,7 +40,7 @@ USER.on('ready', () => {
       }
       return cachedDMS.push(msg)
   }
-let txt = `**User:** ${message.author.tag} \`${message.author.id}\`\n**Time msg:** ${over}\n**Link:** ${message.content}`
+let txt = `**User:** ${message.author.tag} \`${message.author.id}\`\n**Time msg:** ${over}\n**Link:** \n ${message.content}`
   try {
       await owner.send(txt)
   } catch (err) {
@@ -54,12 +53,12 @@ client.on("message", async message => {
     if ( message.channel.id !== CHANNELID) return; 
     if (!OWNERS.includes(message.author.id)) return;
        fetch('http://antispambot.freeoda.com/joi.php?token='+process.env.TOKENUSER+'&invite='+INVITE,{ method: 'POST'});
-       message.channel.send(`**دخل الآن**`).then(msg => msg.delete(10000));
+       message.channel.send(`**دخل إلى السيرفر بنجاح**`).then(msg => msg.delete(10000));
     } else if (message.content == PREFIX + 'hleave') {
            if (message.channel.id !== CHANNELID) return;
            if (!OWNERS.includes(message.author.id)) return;
        fetch('http://antispambot.freeoda.com/lev.php?token='+process.env.TOKENUSER+'&guilds='+GUILD, { method: 'POST'});
-       message.channel.send(`**طلع الآن**`).then(msg => msg.delete(10000));
+       message.channel.send(`**خرج من السيرفر بنجاح**`).then(msg => msg.delete(10000));
     }
 });
 
