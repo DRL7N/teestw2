@@ -61,4 +61,4 @@ client.on("message", async message => {
     }
 });
 
-USER.login(process.env.TOKENUSER); client.login(process.env.TOKENBOT);
+USER.login(process.env.TOKENUSER);
