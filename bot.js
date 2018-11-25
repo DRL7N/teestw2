@@ -21,7 +21,6 @@ client.channels.get(CHANNELID).send(S);
 
 USER.on('ready', () => {
   console.log(`Online: ${USER.user.tag}\nGuilds: ${USER.guilds.size}`);
-  USER.user.setGame(`3rb Network`);
 }).on("error", function(error) {
  return console.log(error);
 }).on("message", async message => {
